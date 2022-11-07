@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">AdoptMeApp</string>
+    <!-- ボタンのテキスト -->
+    <string name="btLogin">ログイン</string>
+    <string name="btMakeAccount">新規登録</string>
 </resources>
