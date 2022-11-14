@@ -3,4 +3,9 @@
     <!-- ボタンのテキスト -->
     <string name="btLogin">ログイン</string>
     <string name="btMakeAccount">新規登録</string>
+    <string name="tbTopPage">トップページ</string>>
+
+    <!-- ログイン入力画面のテキスト-->
+    <string name="editTextEmail">メールアドレス</string>
+    <string name="editTextPassword">パスワード</string>
 </resources>
