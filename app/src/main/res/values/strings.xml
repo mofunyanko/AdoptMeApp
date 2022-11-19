@@ -8,4 +8,16 @@
     <!-- ログイン入力画面のテキスト-->
     <string name="editTextEmail">メールアドレス</string>
     <string name="editTextPassword">パスワード</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="nav_item_vaccination">ワクチン接種</string>
+    <string name="nav_item_adopt">犬猫譲渡</string>
+    <string name="nav_item_event_announcement">イベント情報</string>
+
+    <string name="nav_item_info_create_update">情報の登録・更新</string>
+    <string name="nav_item_help">ヘルプ</string>
+    <string name="nav_item_settings">設定</string>
+    <string name="header_title">ユーザー名</string>
+    <string name="header_userName_text">ミケ猫</string>
 </resources>
