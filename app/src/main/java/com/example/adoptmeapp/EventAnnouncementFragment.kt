@@ -1,6 +1,7 @@
 package com.example.adoptmeapp
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -24,8 +25,8 @@ class EventAnnouncementFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_event_announcement, container, false)
 
         val event1 = Event("初心者飼い主さん歓迎！しつけ講座のご案内", "新潟動物ふれあいセンター", R.drawable.test_event_announce_foreground)
-        val event2 = Event("犬猫を引き取ってみたいあなたに！譲渡会のご案内", "石川動物愛護センター", R.drawable.test_event_announce_foreground)
-        val event3 = Event("狂犬病ワクチン受付開始!", "○○保健所", R.drawable.test_event_announce_foreground)
+        val event2 = Event("犬猫を引き取りたい人に！譲渡会のご案内", "石川動物愛護センター", R.drawable.test_event_announce_foreground)
+        val event3 = Event("【重要】狂犬病ワクチン接種のご案内!", "○○保健所", R.drawable.test_event_announce_foreground)
         val event4 = Event("猫を飼っている方へ！お風呂講座のご案内", "××動物愛護センター", R.drawable.test_event_announce_foreground)
         val event5 = Event("ペットを飼うこととは 講演会のご案内", "△△ホール", R.drawable.test_event_announce_foreground)
         val event6 = Event("初心者飼い主さん歓迎！しつけ講座のご案内", "新潟動物ふれあいセンター", R.drawable.test_event_announce_foreground)
@@ -36,10 +37,16 @@ class EventAnnouncementFragment : Fragment() {
 
         val recyclerView = view.findViewById<RecyclerView>(R.id.recycler_view)
 
-        recyclerView.layoutManager = LinearLayoutManager(view.context)
+        recyclerView.layoutManager = LinearLayoutManager(context)
 
         eventListRecyclerViewAdapter = EventListRecyclerViewAdapter(eventList)
         recyclerView.adapter = eventListRecyclerViewAdapter
+
+        eventListRecyclerViewAdapter.setOnItemClickListener(object : EventListRecyclerViewAdapter.OnItemClickListener {
+            override fun onItemClick(event: Event) {
+                val intent = Intent(context, ViewDetailsActivity::class.java)
+                startActivity(intent)
+            }})
         return view
     }
 }
