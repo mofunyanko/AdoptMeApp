@@ -1,14 +1,18 @@
 package com.example.adoptmeapp
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.View
+import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.viewpager2.widget.ViewPager2
 import com.example.adoptmeapp.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationBarView
+import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_top_page.*
 
 class TopPageActivity : AppCompatActivity() {
@@ -58,6 +62,13 @@ class TopPageActivity : AppCompatActivity() {
                 }
             }
         })
+
+        // ユーザー名を取得
+        val userName = intent.getStringExtra("userName")
+        val navigationView = findViewById<NavigationView>(R.id.navigationView)
+        val header: View = navigationView.getHeaderView(0)
+        val tvUserName: TextView = header.findViewById(R.id.tvUserName)
+        tvUserName.text = "ようこそ、" + userName + "さん"
 
         toolbar.setNavigationOnClickListener {
             drawerLayout.open()
