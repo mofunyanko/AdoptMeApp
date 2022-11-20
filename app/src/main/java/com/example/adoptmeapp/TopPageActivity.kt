@@ -1,5 +1,6 @@
 package com.example.adoptmeapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -8,14 +9,12 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.adoptmeapp.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationBarView
-import com.google.android.material.tabs.TabLayout
-import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.activity_top_page.*
 
 class TopPageActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
-    private val onNavigationItemSelectedListener = NavigationBarView.OnItemSelectedListener{ item ->
+    private val onBottomNavigationItemSelectedListener = NavigationBarView.OnItemSelectedListener{ item ->
         when (item.itemId) {
             R.id.eventAnnounce -> {
                 viewPager2.currentItem = 0
@@ -48,7 +47,7 @@ class TopPageActivity : AppCompatActivity() {
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigation)
         val viewPager2: ViewPager2 = findViewById(R.id.viewPager2)
         viewPager2.adapter = TopPageViewPagerAdapter(supportFragmentManager, lifecycle)
-        bottomNavigationView.setOnItemSelectedListener(onNavigationItemSelectedListener)
+        bottomNavigationView.setOnItemSelectedListener(onBottomNavigationItemSelectedListener)
         viewPager2.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
@@ -65,6 +64,10 @@ class TopPageActivity : AppCompatActivity() {
         }
 
         navigationView.setNavigationItemSelectedListener {
+            when(it.itemId) {
+                R.id.infoCreateUpdate -> startActivity(Intent(this@TopPageActivity, InfomationCreateUpdateActivity::class.java))
+                R.id.logout -> startActivity(Intent(this@TopPageActivity, MainActivity::class.java))
+            }
             it.isChecked = true
             drawerLayout.close()
             true

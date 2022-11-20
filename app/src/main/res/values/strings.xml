@@ -8,6 +8,7 @@
     <!-- ログイン入力画面のテキスト-->
     <string name="editTextEmail">メールアドレス</string>
     <string name="editTextPassword">パスワード</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
