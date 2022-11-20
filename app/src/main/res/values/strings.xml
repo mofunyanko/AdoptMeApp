@@ -11,6 +11,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="btDetails">詳細</string>
 
     <string name="nav_item_vaccination">ワクチン接種</string>
     <string name="nav_item_adopt">犬猫譲渡</string>
